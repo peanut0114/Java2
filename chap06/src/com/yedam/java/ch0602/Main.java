@@ -25,7 +25,5 @@ public class Main {
 		Car newCar = new Car();
 		System.out.println(newCar.color);
 		
-		
-		
 	}
 }
