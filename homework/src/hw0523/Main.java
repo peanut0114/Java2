@@ -11,7 +11,7 @@ public class Main {
 		ScoreList abc = new ScoreList();
 		
 		while(run){
-			System.out.println("\n1.학생수 입력|2.점수등록|3.점수전체조회|4.정보분석|5.종료");
+			System.out.println("1.학생수 입력|2.점수등록|3.점수전체조회|4.정보분석|5.종료");
 			System.out.print("선택 > ");
 			int menu = Integer.parseInt(sc.nextLine());
 			if(menu==1) {
@@ -34,7 +34,7 @@ public class Main {
 			}else{
 				System.out.println("다시 입력하세요.");
 			}
-			
+			System.out.println();
 		}		
 	}	
 }

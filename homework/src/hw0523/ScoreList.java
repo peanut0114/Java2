@@ -36,6 +36,7 @@ public class ScoreList {
 		} 
 	}
 	
+
 	//4-1. 최고점
 	int max() {
 		int max = scores[0];
@@ -64,9 +65,15 @@ public class ScoreList {
 		for (int i=0 ; i<=index ; i++) {
 			sum += scores[i];
 		}
+		if(index<0) {
+			return 0;
+		}
+		if(index<2) {
+			return sum/(index+1);
+		}
 		sum -= max();
 		sum -= min();
-		return (double)sum/(index-1);
+		return (double)sum/(index-1);	//
 	}
 	
 	//4. 
