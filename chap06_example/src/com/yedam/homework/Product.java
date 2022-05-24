@@ -11,7 +11,7 @@ package com.yedam.homework;
 public class Product {
 //상품에 대한 정보를 가지는 클래스
 	//필드
-	private String name;
+	private String name;	
 	private int price;
 	
 	//생성자
