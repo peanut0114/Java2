@@ -7,7 +7,7 @@ public class Game {
 	private int rand;		//정답
 	private int guessNum[]= new int[10] ;	//추측한 숫자 저장
 	
-	public Game () {
+	public Game () {						//게임 시작시 정답 저장
 		rand = (int) (Math.random()*100+1);
 	}
 	
