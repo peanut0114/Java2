@@ -15,8 +15,4 @@ public class Game {
 		return rand;
 	}
 	
-	public void setRand() {
-		this.rand = rand;
-	}
-
 }

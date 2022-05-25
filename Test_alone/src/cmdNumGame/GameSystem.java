@@ -13,6 +13,10 @@ public class GameSystem {
 	
 	public void upDown(int num) {
 		turn++;
-		if(num==)
+		
+		if(num==game.getrand()) {
+			System.out.println("**정답입니다!**");
+		}
+			
 	}
 }
