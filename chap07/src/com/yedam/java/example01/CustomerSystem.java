@@ -1,6 +1,8 @@
 package com.yedam.java.example01;
 /*
- * 일반적인 구성
+ * 일반적인 구성 > 메소드를 어떻게 구성해볼까!
+ * 
+ * 
  * 생성자 안에서 while문 (메뉴-션택) 코드 모아놓는 곳
  * 메소드 이름만 보고 기능 할 수 있게 네이밍! 중요!
  * 
@@ -69,7 +71,6 @@ public class CustomerSystem {
 		Customer customer = getGrade();
 		customer.setCustomerId(id);
 		customer.setCustomerName(name);
-		
 		/*
 		int selected = selectGrade(); //인스턴스 만들어 반환받으려했는데 수정필해요해서 그냥..
 		Customer customer = null;
@@ -85,6 +86,7 @@ public class CustomerSystem {
 			break;
 		}
 		*/
+		System.out.printf("No.%d %s님 가입 완료되었습니다.\n",customer.getCustomerId(),customer.getCustomerName());
 		return customer;
 		
 	}

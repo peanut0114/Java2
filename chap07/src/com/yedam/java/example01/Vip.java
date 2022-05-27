@@ -9,6 +9,7 @@ public class Vip extends Customer {
 		this.customerGrade = "VIP";
 		this.bonusRatio = 0.05;
 		this.saleRatio = 0.15;
+		this.countselor= "이한나";
 	}
 	public Vip(int customerId, String customerName,String countselor) {
 		super(customerId, customerName);

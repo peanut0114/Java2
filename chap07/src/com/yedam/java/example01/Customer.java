@@ -41,7 +41,7 @@ public class Customer {
 	public String getCustomerName(){
 		return customerName;
 	}
-	public void setCustomerName(String customerGrade) {
+	public void setCustomerName(String customerName) {
 		this.customerName = customerName;
 	}
 	public String getCustomerGrade(){
