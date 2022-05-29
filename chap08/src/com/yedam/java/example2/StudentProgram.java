@@ -7,9 +7,9 @@ public class StudentProgram implements Program {
 	
 	@Override
 	public void menuPrint() {
-		System.out.println("=======================================");
-		System.out.println("1.정보입력 |2.전체조회 |3.검색 |4.분석 |5.종료");
-		System.out.println("=======================================");
+		System.out.println("=============================================");
+		System.out.println("1.정보입력 |2.전체조회 |3.검색 |4.분석 |5.수정|5.종료");
+		System.out.println("=============================================");
 	}
 
 	//1. 정보입력
