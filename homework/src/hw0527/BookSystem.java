@@ -39,7 +39,7 @@ public class BookSystem implements BookProgram {
 	// 3. 검색
 	@Override
 	public void printInfo(Repo repo) {
-		System.out.print("검색 할 ");
+		System.out.print("검색할 ");
 		Book book = selectBook(repo);
 		if (nullCheck(book)) {
 			showInfo(book);
@@ -59,7 +59,7 @@ public class BookSystem implements BookProgram {
 		showInfo(findMax(repo));
 		System.out.println("최저가 도서 정보 > ");
 		showInfo(findMin(repo));
-		System.out.printf("최고, 최저가를 제외한 가격 평균 : %.2f원\n", findAvg(repo));
+		System.out.printf("\n최고, 최저가를 제외한 가격 평균 : %.2f원\n", findAvg(repo));
 	}
 
 	public Book findMax(Repo repo) {
@@ -113,7 +113,7 @@ public class BookSystem implements BookProgram {
 		System.out.println("삭제할 ");
 		Book book = selectBook(repo);
 		if (nullCheck(book)) {
-			System.out.println("도서 '"+book.getBookName()+"을(를) 제거합니다.");
+			System.out.println("도서 '"+book.getBookName()+"'을(를) 제거합니다.");
 			repo.delete(book);
 		}
 	}
