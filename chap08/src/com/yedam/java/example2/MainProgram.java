@@ -6,7 +6,7 @@ public class MainProgram {
 
 	// 필드
 	private Scanner sc = new Scanner(System.in);
-	private Access dao = StudentRepo.getInstance(); // 저장소
+	private Access dao = StudentRepo.getInstance(); // 저장소. dao : 데이터 오브젝트레포트 -db에 대응되는.. 광용적 사용...
 	private Program pro = new StudentProgram();	//인터페이스추가
 
 	// 생성자
