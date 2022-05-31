@@ -1,12 +1,13 @@
 package bookHw0527;
 
 public class Book {
-	
+	//필드
 	private static int serial = 1000;
 	private int isbn;
 	private String bookName;
 	private int bookPrice;
 
+	//생성자
 	public Book() {}
 	
 	public Book(String name,int price) {
@@ -15,6 +16,7 @@ public class Book {
 		isbn = ++serial;
 	}
 
+	//메소드
 	public static int getSerial() {
 		return serial;
 	}

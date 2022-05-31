@@ -27,21 +27,45 @@ public class BookRepo implements Access{
 
 	@Override
 	public Book printOne(int isbn) {
-		// TODO Auto-generated method stub
-		
+		Book select = new Book();
+		for(int i=0 ; i<=index ; i++) {
+			if(isbn==list[i].getIsbn()) {
+				select=list[i];
+			}
+		}
+		return select;
 	}
 
 	@Override
 	public void update(Book book) {
-		// TODO Auto-generated method stub
-		
+		for(int i=0 ; i<=index ; i++) {
+			if(book.getBookPrice()==list[i].getIsbn()) {
+				list[i]=book;
+			}
+		}
 	}
 
 	@Override
 	public void delete(Book book) {
-		// TODO Auto-generated method stub
-		
+		for(int i=0 ; i<=index ; i++) {
+			if(book.getBookPrice()==list[i].getIsbn()) {
+				list[i]=null;
+			}
+		}
+		cleanNull();
 	}
 	
+	public void cleanNull() {
+		Book[] temp = list;
+		int tempindex = index;
+		index=-1;
+		list=null;
+		for(int i=0;i<=tempindex;i++) {
+			if(temp[i]!=null) {
+				list[++index]=temp[i];
+			}
+		}
+		
+	}
 
 }
