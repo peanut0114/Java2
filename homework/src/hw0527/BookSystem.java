@@ -14,7 +14,7 @@ public class BookSystem implements BookProgram {
 
 	// 1. 정보입력
 	@Override
-	public void insertInfo(Repo repo) {
+	public void insertInfo(Access repo) {
 		Book newBook = insertAll(); // 새로운 책 정보 입력
 		repo.insert(newBook); // repo에 저장
 	}
@@ -29,7 +29,7 @@ public class BookSystem implements BookProgram {
 
 	// 2. 전체조회
 	@Override
-	public void printAllInfo(Repo repo) {
+	public void printAllInfo(Access repo) {
 		Book[] list = repo.selectAll();
 		for (Book temp : list) {
 			showInfo(temp);
@@ -38,7 +38,7 @@ public class BookSystem implements BookProgram {
 
 	// 3. 검색
 	@Override
-	public void printInfo(Repo repo) {
+	public void printInfo(Access repo) {
 		System.out.print("검색할 ");
 		Book book = selectBook(repo);
 		if (nullCheck(book)) {
@@ -46,7 +46,7 @@ public class BookSystem implements BookProgram {
 		}
 	}
 
-	public Book selectBook(Repo repo) {
+	public Book selectBook(Access repo) {
 		System.out.println("도서의 ISBN 입력 > ");
 		int isbn = Integer.parseInt(sc.nextLine());
 		return repo.selectOne(isbn);
@@ -54,7 +54,7 @@ public class BookSystem implements BookProgram {
 
 	// 4. 분석
 	@Override
-	public void printReport(Repo repo) {
+	public void printReport(Access repo) {
 		System.out.println("최고가 도서 정보 > ");
 		showInfo(findMax(repo));
 		System.out.println("최저가 도서 정보 > ");
@@ -62,7 +62,7 @@ public class BookSystem implements BookProgram {
 		System.out.printf("\n최고, 최저가를 제외한 가격 평균 : %.2f원\n", findAvg(repo));
 	}
 
-	public Book findMax(Repo repo) {
+	public Book findMax(Access repo) {
 		Book[] temp = repo.selectAll();
 		Book MaxInfo = temp[0];
 		for (int i = 0; i < temp.length; i++) {
@@ -73,7 +73,7 @@ public class BookSystem implements BookProgram {
 		return MaxInfo;
 	}
 
-	public Book findMin(Repo repo) {
+	public Book findMin(Access repo) {
 		Book[] temp = repo.selectAll();
 		Book MinInfo = temp[0];
 		for (int i = 0; i < temp.length; i++) {
@@ -84,7 +84,7 @@ public class BookSystem implements BookProgram {
 		return MinInfo;
 	}
 
-	public double findAvg(Repo repo) {
+	public double findAvg(Access repo) {
 		Book[] temp = repo.selectAll();
 		int sum = 0;
 		for (int i = 0; i < temp.length; i++) {
@@ -99,7 +99,7 @@ public class BookSystem implements BookProgram {
 	}
 
 	// 5. 수정
-	public void updateInfo(Repo repo) {
+	public void updateInfo(Access repo) {
 		System.out.print("수정할 ");
 		Book book = selectBook(repo);
 		if (nullCheck(book)) {
@@ -109,7 +109,7 @@ public class BookSystem implements BookProgram {
 	}
 
 	// 6. 삭제
-	public void deletInfo(Repo repo) {
+	public void deletInfo(Access repo) {
 		System.out.println("삭제할 ");
 		Book book = selectBook(repo);
 		if (nullCheck(book)) {

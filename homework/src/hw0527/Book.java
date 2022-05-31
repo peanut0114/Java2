@@ -1,6 +1,7 @@
 package hw0527;
 /*
- * 정보저장
+ * VO, DTO클래스 : 정보저장하는 클래스
+ * 도서정보 저장
  * isbn, 책제목, 가격
  */
 public class Book {
@@ -40,4 +41,5 @@ public class Book {
 	public String showInfo() {
 		return "도서명 : "+bookName+", ISBN : "+Isbn+", 가격 : "+bookPrice+"원";
 	}
+	
 }

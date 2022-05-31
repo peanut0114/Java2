@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class MainProgram {
 
 	Scanner sc = new Scanner(System.in);
-	Repo re = BookRepo.getInstance();
+	Access re = BookDAO.getInstance();
 	BookProgram pro = new BookSystem();
 
 	public MainProgram() {

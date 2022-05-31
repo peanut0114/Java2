@@ -7,15 +7,15 @@ public interface BookProgram {
 	//메뉴 선택
 	public void menuPrint();
 	//1. 책 정보 입력(isbn 번호 할당)
-	public void insertInfo(Repo repo);
+	public void insertInfo(Access repo);
 	//2. 전체조회
-	public void printAllInfo(Repo repo);
+	public void printAllInfo(Access repo);
 	//3. 검색
-	public void printInfo(Repo repo);
+	public void printInfo(Access repo);
 	//4. 분석(최대,최소,제외한 평균)
-	public void printReport(Repo repo);
+	public void printReport(Access repo);
 	//5. 수정
-	public void updateInfo(Repo repo);
+	public void updateInfo(Access repo);
 	//6. 삭제
-	public void deletInfo(Repo repo);
+	public void deletInfo(Access repo);
 }
