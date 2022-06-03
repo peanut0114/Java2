@@ -11,7 +11,7 @@ public class Member {
 	}
 	
 
-	@Override
+	@Override	//equals를 overriding 으로 재정의해줘야 함
 	public boolean equals(Object obj) {
 		//논리적으로 동등한지
 		
@@ -25,5 +25,19 @@ public class Member {
 		}
 		return false; 
 	}
+
+	@Override
+	public int hashCode() {
+		//char타입은 숫자
+		return id.hashCode(); 	//스트링타입 해시코드 : 필드값에 맞춰 숫자로 변환시켜줌
+		
+	}
+
+	@Override
+	public String toString() {	//우리가 하던 showInfo.. 관례적으론 toString을 오버라이딩함
+		return "id : "+id;		//어떤값을 어떻게 출력할지 만듬
+	}
+	
+	
 	
 }
