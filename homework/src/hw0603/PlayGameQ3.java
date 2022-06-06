@@ -10,6 +10,7 @@ public class PlayGameQ3 {
 
 	PlayGameQ3() { // 랜덤 초기화
 		int n = (int) (Math.random() * 2);
+		
 		if (n == 0) {
 			game = new ArcadeGame();
 		} else if(n==1) {
@@ -62,7 +63,6 @@ public class PlayGameQ3 {
 	}
 
 	public void gameChange(Keypad game) {
-		this.game = null;
 		if (game instanceof RPGgame) {
 			this.game = new ArcadeGame();
 		} else if (game instanceof ArcadeGame) {
