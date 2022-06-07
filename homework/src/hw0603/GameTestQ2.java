@@ -13,7 +13,8 @@ public class GameTestQ2 {
 		game.leftDownButton();	//캐릭터가 아래쪽으로 이동한다.
 		game.changeMode();	//현재 모드 : NORMAL_MODE
 		game.rightDownButton();	//캐릭터가 일반 공격.
-		System.out.println("======================");	//======================
+		
+		System.out.println("======================");	
 	
 		game = new ArcadeGame();	//ArcadeGame 실행
 		game.leftUpButton();	//캐릭터가 앞쪽으로 이동한다.

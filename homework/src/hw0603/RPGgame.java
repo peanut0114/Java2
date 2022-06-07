@@ -1,5 +1,5 @@
 package hw0603;
-
+//Q2,Q3
 public class RPGgame implements Keypad {
 	//필드
 	int mode;	//게임모드
@@ -7,9 +7,7 @@ public class RPGgame implements Keypad {
 	//생성자
 	RPGgame(){
 		this.mode = NORMAL_MODE; //노멀모드로 초기화
-		System.out.println("\n***************");
 		System.out.println("**RPGgame 실행**");
-		System.out.println("***************");
 	}
 	
 	@Override
@@ -42,7 +40,6 @@ public class RPGgame implements Keypad {
 
 	@Override
 	public void changeMode() {
-		System.out.println();
 		if(mode==0) {
 			mode=1;
 			System.out.println("MODE CHANGE\n현재모드 > HARD MODE");

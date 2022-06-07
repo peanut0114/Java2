@@ -4,7 +4,7 @@ public class GameTestQ3 {
 
 	public static void main(String[] args) {
 		
-		PlayGameQ3 gameQ3 = new PlayGameQ3();
+		PlayGame gameQ3 = new PlayGame();
 		gameQ3.mainProgram();
 
 	}
