@@ -1,5 +1,4 @@
-package com.yedam.java.ioStringStream;
-import java.io.FileNotFoundException;
+package com.yedam.java.ioCharStream;
 /*
  * 문자기반 입력 : 읽을 땐 string으로 읽을 수 없다
  * 모든 컴이 통신할 수 있는 단위인 byte 기반으로 읽음 (char=2byte)

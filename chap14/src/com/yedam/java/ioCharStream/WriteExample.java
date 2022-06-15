@@ -1,4 +1,4 @@
-package com.yedam.java.ioStringStream;
+package com.yedam.java.ioCharStream;
 /*
  * 문자기반 출력 : char, string 모두 가능
  * 자바가 다루는 타입이라 write 메소드가 알아서 char로 내보내는 것
