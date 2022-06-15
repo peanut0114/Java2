@@ -46,11 +46,12 @@ public class ReadExample {
 		
 		reader = new FileReader("d:/dev/temp/test10.db");
 		
-		int readCharNum = reader.read(buffer,6,15);	//기존에 썼던 버퍼 이용
+		int readCharNum = reader.read(buffer,7,10);	//기존에 썼던 버퍼 이용
 									//6번째 부터 15개 문자 출력
 									//앞에 들어간 5개 문자 외의 빈자리 널값생김
 									//왜 e 안 보이지??
-		for(int i=0 ; i< (5+readCharNum);i++) {
+		System.out.println(readCharNum);
+		for(int i=0 ; i< (8+readCharNum);i++) {	//버퍼 앞에 happy5글자 있음 위에 시작 위치 보다 같거나 크게 더해줘야 뒤의 값이 온전히 나옴
 			System.out.print(buffer[i]);
 		}
 		

@@ -45,7 +45,7 @@ public class WriteExample {
 		
 		//스트링으로 바로 내보내기 (자르는건 배열이든 스트링이든 전부 가능)
 		writer = new FileWriter("d:/dev/temp/test10.db");
-		String str1 = "ABCDE\n";
+		String str1 = "ABCDE\n";	//\n도 1바이트
 		String str2 = "abcde";
 		
 		writer.write(str1);
