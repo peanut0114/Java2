@@ -99,11 +99,11 @@ public class EmpDAO {
 	}
 
 	// 3.CRUD 실행 : 어떤 기능 쓸거냐에 따라 달라짐, 항상 connect로 시작해서 disconnect로 끝남
+	
 	// 3-1) 전체조회 (각 건이 반환, 개수 모르므로 배열불가 -> list)
-	// SQL을 다루기때문에 try-catch 문으로 감싸줌
 	public List<Employee> selectAll() {
 		List<Employee> list = new ArrayList<>();
-		try {
+		try {								// SQL을 다루기때문에 try-catch 문으로 감싸줌
 			connect(); // 시작하기 전에 커넥트
 
 			String sql = "SELECT * FROM employees ORDER BY 2";
@@ -188,7 +188,7 @@ public class EmpDAO {
 			int result = pstmt.executeUpdate(); // DB로 쿼리 넘기기
 
 			if (result > 0) {
-				System.out.println(result + "건이 UPDATE 완료되었습니다.");
+				System.out.println(result + "건이 등록 완료되었습니다.");
 			} else {
 				System.out.println("등록되지 않았습니다.");
 			}
@@ -215,7 +215,7 @@ public class EmpDAO {
 			if (result > 0) {
 				System.out.println(result + "건이 UPDATE 완료되었습니다.");
 			} else {
-				System.out.println("등록되지 않았습니다.");
+				System.out.println("수정되지 않았습니다.");
 			}
 
 		} catch (SQLException e) {
@@ -230,8 +230,10 @@ public class EmpDAO {
 		try {
 			connect();
 			String sql = "DELETE FROM employees WHERE employee_id=?";
-			stmt = conn.createStatement();
-			int result = stmt.executeUpdate(sql);
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, employeeId);
+
+			int result = pstmt.executeUpdate();
 			if (result > 0) {
 				System.out.println(result + "건 삭제되었습니다.");
 			} else {
@@ -244,22 +246,4 @@ public class EmpDAO {
 		}
 	}
 
-	public void settTable(Employee emp, String sql) throws SQLException {
-		rs = stmt.executeQuery(sql);
-		if (rs.next()) {
-			emp = new Employee(); // 값이 있을때 인스턴스 생성
-
-			emp.setEmployeeId(rs.getInt("employee_id"));
-			emp.setFirstName(rs.getString("first_name"));
-			emp.setLastName(rs.getString("last_name"));
-			emp.setEmail(rs.getString("email"));
-			emp.setPhoneNumber(rs.getString("phone_number"));
-			emp.setHireDate(rs.getDate("hire_date"));
-			emp.setJob_id(rs.getString("job_id"));
-			emp.setSalary(rs.getDouble("salary"));
-			emp.setCommissionPct(rs.getDouble("commission_pct"));
-			emp.setManagerId(rs.getInt("manager_id"));
-			emp.setDepartmentId(rs.getInt("department_id"));
-		}
-	}
 }
