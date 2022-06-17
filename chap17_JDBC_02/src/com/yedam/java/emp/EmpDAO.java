@@ -1,5 +1,4 @@
 package com.yedam.java.emp;
-
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.sql.Connection;
@@ -11,7 +10,6 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
-
 /*
  * DAO
  * 가능한 싱글톤으로 만들것 : 이 인스턴스로만 접근하도록! (접속 연결관리)
@@ -146,11 +144,11 @@ public class EmpDAO {
 			if (rs.next()) {
 				emp = new Employee(); // 값이 있을때 인스턴스 생성
 
-				emp.setEmployeeId(rs.getInt("employee_id"));
-				emp.setFirstName(rs.getString("first_name"));
-				emp.setLastName(rs.getString("last_name"));
-				emp.setEmail(rs.getString("email"));
-				emp.setPhoneNumber(rs.getString("phone_number"));
+				emp.setEmployeeId(rs.getInt(1));
+				emp.setFirstName(rs.getString(2));
+				emp.setLastName(rs.getString(3));
+				emp.setEmail(rs.getString(4));
+				emp.setPhoneNumber(rs.getString(5));
 				emp.setHireDate(rs.getDate("hire_date"));
 				emp.setJob_id(rs.getString("job_id"));
 				emp.setSalary(rs.getDouble("salary"));
