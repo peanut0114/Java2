@@ -100,7 +100,7 @@ public class ProductDAO extends DAO {
 			rs = stmt.executeQuery(sql);
 			while(rs.next()) {
 				pro = new Product();
-				pro.setProductId(rs.getInt("procduct_id"));
+				pro.setProductId(rs.getInt("product_id"));
 				pro.setProductName(rs.getString("product_name"));
 				pro.setProductPrice(rs.getInt("product_price"));
 			}
@@ -116,12 +116,13 @@ public class ProductDAO extends DAO {
 		Product pro = null;
 		try {
 			connect();
-			String sql = "SELECT * FROM product WHERE product_name="+productName;
-			stmt = conn.createStatement();
-			rs = stmt.executeQuery(sql);
+			String sql = "SELECT * FROM product WHERE product_name=?";
+			pstmt=conn.prepareStatement(sql);
+			pstmt.setString(1, productName);
+			rs = pstmt.executeQuery();
 			while(rs.next()) {
 				pro = new Product();
-				pro.setProductId(rs.getInt("procduct_id"));
+				pro.setProductId(rs.getInt("product_id"));
 				pro.setProductName(rs.getString("product_name"));
 				pro.setProductPrice(rs.getInt("product_price"));
 			}
@@ -137,7 +138,7 @@ public class ProductDAO extends DAO {
 		List<Product> list = new ArrayList<>();
 		try {
 			connect();
-			String sql = "SELECT * FROM product ORDER BY 1";
+			String sql = "SELECT * FROM product ORDER BY product_id";
 			stmt = conn.createStatement();
 			
 			rs = stmt.executeQuery(sql);
