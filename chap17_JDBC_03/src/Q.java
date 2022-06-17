@@ -16,8 +16,8 @@ public class Q {
 	
 	<클래스정보>
 	1. 싱글톤 + CRUD 작업
-	* product : productId, productName, productPrice
-	* history : productId, productCategory, productAmount
+	* product : productId, productName, productPrice (상품기본정보)
+	* history : productId, productCategory, productAmount (재고관리)
 	
 	2. 통합정보 게터,세터
 	* Info : productId, productName, productCategory, productAmount
