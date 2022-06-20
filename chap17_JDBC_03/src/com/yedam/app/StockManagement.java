@@ -151,7 +151,7 @@ public class StockManagement {
 		Set<Integer> productList = list.keySet();	//key에 대한 set컬렉션
 		for(int productId : productList) {
 			Product product = pDAO.selectOne(productId);	//product에서 id기반 정보 가지고옴
-			int stock = list.get(productId);	//재고 가지고옴
+			int stock = list.get(productId);	//해당 id(맵의 키)의 재고(값) 가지고옴
 			
 			System.out.println("제품정보 : "+product.getProductId()
 							+", 제품이름 : "+product.getProductName()
