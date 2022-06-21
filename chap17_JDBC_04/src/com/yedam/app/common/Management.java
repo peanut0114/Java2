@@ -2,6 +2,7 @@ package com.yedam.app.common;
 import java.util.Scanner;
 
 import com.yedam.app.deal.ReceivingGoodsDAO;
+import com.yedam.app.deal.TakeOutGoodsDAO;
 import com.yedam.app.product.ProductDAO;
 import com.yedam.app.product.ProductManagement;
 //재고관리
