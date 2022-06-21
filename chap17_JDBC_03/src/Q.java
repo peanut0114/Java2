@@ -15,19 +15,20 @@ public class Q {
 	
 	
 	<클래스정보>
+	0. DB에 접근하는 DAO
+	 * ProductDAO 
+			수정 - 가격
+	
+	 * HistoryDAO 
+			수정 - 입고량/출고량
+			조회 - 재고 (서브쿼리사용)
+		
 	1. 싱글톤 + CRUD 작업
 	* product : productId, productName, productPrice (상품기본정보)
 	* history : productId, productCategory, productAmount (재고관리)
 	
 	2. 통합정보 게터,세터
 	* Info : productId, productName, productCategory, productAmount
-	
-	* ProductDAO 
-		수정 - 가격
-
-	* HistoryDAO 
-		수정 - 입고량/출고량
-		조회 - 재고 (서브쿼리사용)
 	
 	 
  */
