@@ -7,6 +7,7 @@ import com.yedam.app.common.DAO;
 
 public class ProductDAO extends DAO{
 
+	//싱글톤
 	private ProductDAO() {}
 	public static ProductDAO productDAO =null;
 	public static ProductDAO getInstance() {
@@ -15,6 +16,7 @@ public class ProductDAO extends DAO{
 		}
 		return productDAO;
 	}
+	
 	//CRUD - 기본 : 등록/수정/삭제/단건조회/전체조회
 	//등록 : 매개변수 vo객체
 	public void insert(Product product) {	
@@ -40,7 +42,7 @@ public class ProductDAO extends DAO{
 	}
 	
 	//수정 - 재고
-	public void update(Product product) {	
+	public void updateStock(Product product) {	
 		try {
 			connect();
 			//preparedStatment 아닌 Statement 이용하려면 ?없이 sql문에 바로 DB에 입력
@@ -57,6 +59,34 @@ public class ProductDAO extends DAO{
 		}catch(SQLException e) {
 			e.printStackTrace();
 		}finally{
+			disconnect();
+		}
+	}
+	
+	//수정 - 이름, 가격 
+	public void updateInfo(Product product) {
+		try {
+			connect();
+			
+			String sql = "UPDATE products "
+						+ "SET product_name=?, product_price=? "//여러개 업뎃은 콤마로 나열
+						+ "WHERE product_id=?";
+			//둘 다 값을 넣어야하기 때문에 바꾸지 않는다면 원래 값을 그대로 반환하도록 짤 것
+			
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, product.getProductName());
+			pstmt.setInt(2, product.getProductPrice());
+			pstmt.setInt(3, product.getProductId());
+			
+			int result = pstmt.executeUpdate();
+			if(result>0) {
+				System.out.println(result+"건이 정상적으로 수정되었습니다.");
+			}else {
+				System.out.println("정상적으로 수정되지 않았습니다.");
+			}
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}finally {
 			disconnect();
 		}
 	}
@@ -81,7 +111,7 @@ public class ProductDAO extends DAO{
 	}
 	
 	//단건조회 - 재고이름
-	public Product slectOne(String productName) {	
+	public Product selectOne(String productName) {	
 		Product product = null;
 		try {
 			connect();
