@@ -30,13 +30,13 @@ public class Management {
 	
 	//권한에 따른 접근 분류는 이곳에서
 	public void run() {
-		boolean role = selectRole();	//권한받아옴(관리자 true, 회원 false)
+		//boolean role = selectRole();	//권한받아옴(관리자 true, 회원 false)
 		
 		while(true) {
-			menuPrint(role);
+			menuPrint();
 			int menuNo = menuSelect();
 			
-			if(menuNo== 1 && role) {
+			if(menuNo== 1 ) {
 				//제품정보관리 -> 일반회원X 관리자만
 				new ProductInfoManagement();
 			}else if(menuNo==2) {
@@ -54,25 +54,29 @@ public class Management {
 		}
 	}
 	
-	private boolean selectRole() {	//role이 두가지 이상일땐 불린X
+	protected boolean selectRole() {	//role이 두가지 이상일땐 불린X : 하위클래스에서 사용할 메소드
 		int memberRole = LoginControl.getLoginInof().getMemberRole();
-		if (memberRole ==0) {
-			return true;	//관리자일때만 true
-		}else {
-			return false;	//일반회원은 false
+		if (memberRole == 0) {	//관리자 0
+			return true;
+		}else {					//회원 1
+			return false;
 		}
 	}
 
 	//메소드 -> 서브프로그램에서 끌어 쓰기 위해 protected 이용
-	protected void menuPrint(Boolean role) {
-		String menu=" ";
-		if(role) {
-			menu+="1.제품정보관리";
-		}
-		menu+="2.제품재고관리 9.종료";
+	protected void menuPrint() {
+//		String menu=" ";
+//		if(role) {
+//			menu+="1.제품정보관리";
+//		}
+//		menu+="2.제품재고관리 9.종료";
+//		
+//		System.out.println("==============================");
+//		System.out.println(menu);
+//		System.out.println("==============================");
 		
 		System.out.println("==============================");
-		System.out.println(menu);
+		System.out.println(" 1.제품정보관리 2.제품재고관리 9.종료");
 		System.out.println("==============================");
 	}
 	

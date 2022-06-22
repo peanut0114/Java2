@@ -10,25 +10,27 @@ import com.yedam.app.common.Management;
 public class ProductInfoManagement extends Management {
 
 	public ProductInfoManagement() {
+		boolean role = selectRole();	//로그인한 사람의 권한 확인
+		
 		while (true) {
-			menuPrint(); // 오버라이딩필요
+			menuPrint(role);
 			int menuNo = menuSelect(); // 부모에게 있는 메소드 그대로 사용
 
-			if (menuNo == 1) {
+			if (menuNo == 1 && role) {
 				// 제품정보등록
 				insertProductInfo();
-			} else if (menuNo == 2) {
+			} else if (menuNo == 2 && role) {
 				// 제품정보수정 - 가격
 				updateProductInfo();
-			} else if (menuNo == 3) {
-				// 단건 정보조회
-				selectOne();
-			} else if (menuNo == 4) {
-				// 전체 정보조회
-				selectAll();
-			} else if (menuNo == 5) {
+			} else if (menuNo == 3 && role) {
 				// 제품정보삭제
 				deleteProductInfo();
+			} else if (menuNo == 4) {
+				// 단건 정보조회
+				selectOne();
+			} else if (menuNo == 5) {
+				// 전체 정보조회
+				selectAll();
 			} else if (menuNo == 9) {
 				// 뒤로가기
 				back();
@@ -61,9 +63,17 @@ public class ProductInfoManagement extends Management {
 		}
 	}
 
-	protected void menuPrint() {
+	protected void menuPrint(boolean role) {	
+		String menu = " ";
+		//권한에 따라 메뉴를 구성
+		if(role) {
+			menu +="1.제품등록 2.제품수정 3.제품삭제 ";
+		}
+		menu+="4.제품조회 5.전체조회 9.뒤로가기";
+		
+		//해당메뉴 출력
 		System.out.println("=======================================================");
-		System.out.println(" 1.제품등록 2.제품수정 3.제품조회 4.전체조회 5.제품삭제 9.뒤로가기");
+		System.out.println(menu);
 		System.out.println("=======================================================");
 	}
 
