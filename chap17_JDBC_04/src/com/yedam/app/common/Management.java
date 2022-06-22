@@ -1,11 +1,15 @@
 package com.yedam.app.common;
 import java.util.Scanner;
 
+import com.yedam.app.deal.ProductStockManagement;
 import com.yedam.app.deal.ReceivingGoodsDAO;
 import com.yedam.app.deal.TakeOutGoodsDAO;
 import com.yedam.app.product.ProductDAO;
-import com.yedam.app.product.ProductManagement;
-//재고관리
+import com.yedam.app.product.ProductInfoManagement;
+/*
+ * 재고관리 클래스
+ * 로그인 권한에 따른 접근 분류
+ */
 public class Management {
 
 	//필드
@@ -22,20 +26,26 @@ public class Management {
 	
 	//run 메소드 : 실행시키는 코드를 감싸는 메소드
 	//내부에서 다른 메소드가 아닌 서브프로그램(다른 클래스 호출)이 돌아감
+	
+	
+	//권한에 따른 접근 분류는 이곳에서
 	public void run() {
+		boolean role = selectRole();	//권한받아옴(관리자 true, 회원 false)
+		
 		while(true) {
-			menuPrint();
+			menuPrint(role);
 			int menuNo = menuSelect();
 			
-			if(menuNo==1) {
-				//제품정보관리 
-				new ProductManagement();
+			if(menuNo== 1 && role) {
+				//제품정보관리 -> 일반회원X 관리자만
+				new ProductInfoManagement();
 			}else if(menuNo==2) {
-				//제품관리
+				//제품관리 -> 일반회원은 입출고만
 				new ProductStockManagement();
 			}else if(menuNo==9) {
 				//프로그램 종료
 				exit();
+				break;
 			}else {
 				//입력오류
 				showInputError();
@@ -44,10 +54,25 @@ public class Management {
 		}
 	}
 	
+	private boolean selectRole() {	//role이 두가지 이상일땐 불린X
+		int memberRole = LoginControl.getLoginInof().getMemberRole();
+		if (memberRole ==0) {
+			return true;	//관리자일때만 true
+		}else {
+			return false;	//일반회원은 false
+		}
+	}
+
 	//메소드 -> 서브프로그램에서 끌어 쓰기 위해 protected 이용
-	protected void menuPrint() {
+	protected void menuPrint(Boolean role) {
+		String menu=" ";
+		if(role) {
+			menu+="1.제품정보관리";
+		}
+		menu+="2.제품재고관리 9.종료";
+		
 		System.out.println("==============================");
-		System.out.println(" 1.제품정보관리 2.제품재고관리 9.종료");
+		System.out.println(menu);
 		System.out.println("==============================");
 	}
 	

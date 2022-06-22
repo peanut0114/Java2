@@ -62,7 +62,7 @@ public class DAO {
 		jdbcDriver = properties.getProperty("driver");
 		oracleUrl = properties.getProperty("url");
 		connectedId = properties.getProperty("id");
-		connectedPwd = properties.getProperty("password");
+		connectedPwd = properties.getProperty("pwd");
 	}
 	
 	//DB 접속을 해제하는 메소드

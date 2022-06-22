@@ -23,7 +23,7 @@ public class TakeOutGoodsDAO extends DAO {
 		try {
 			connect();
 			String sql="INSERT INTO take_out_goods (product_id, product_amount) "
-					+ "VALUES (?, ?) ";
+					+ "VALUES (?, ?) ";	//deal_date는 디폴트 sysdate라 입력안해도 무관
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, info.getProductId());
 			pstmt.setInt(2, info.getProductAmount());
@@ -41,30 +41,7 @@ public class TakeOutGoodsDAO extends DAO {
 		}
 	}
 	
-	//단건조회 - 출고내역 존재유무
-	public boolean selectInfo(int productId) {
-		boolean isSelected = false;
-		try {
-			connect();
-			String sql = "SELECT COUNT(*) AS count "
-					+ "FROM take_out_goods "
-					+ "WHERE product_id = "+productId;
-			stmt = conn.createStatement();
-			rs = stmt.executeQuery(sql);
-			if(rs.next()) {
-				if(rs.getInt("count")>0) {
-					isSelected = true;
-				}
-			}
-		}catch(SQLException e) {
-			e.printStackTrace();
-		}finally {
-			disconnect();
-		}
-		return isSelected;
-	}
-	
-	//단건조회 - 출고수량 확인
+	//단건조회 - 출고수량 확인 (출고가 된다는건 입고됐다는 말이기때문에 출고유무조회는 필요 X)
 	public int selectAmount(int productId) {
 		int amount = 0;
 		try {
@@ -117,7 +94,7 @@ public class TakeOutGoodsDAO extends DAO {
 	}
 	
 	//전체조회 - 해당 날짜에 출고된 내역
-		public List<DealInfo> selectAll(Date dealDate){
+		public List<DealInfo> selectAll(){
 			List<DealInfo> list = new ArrayList<>();
 			
 			try {
@@ -126,10 +103,8 @@ public class TakeOutGoodsDAO extends DAO {
 								+ ", p.product_name, r.product_amount "
 						+ "FROM products p JOIN take_out_goods r "
 						+ "ON p.product_id = r.product_id "
-						+ "WHERE deal_date = ? "
 						+ "ORDER BY r.deal_date";
 				pstmt = conn.prepareStatement(sql);
-				pstmt.setDate(1, dealDate);
 				rs =  pstmt.executeQuery();
 				while(rs.next()) {
 					DealInfo info = new DealInfo();

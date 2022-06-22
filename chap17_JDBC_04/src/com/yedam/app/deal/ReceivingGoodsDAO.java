@@ -66,10 +66,9 @@ public class ReceivingGoodsDAO extends DAO {
 		}finally {
 			disconnect();
 		}
-		
-		
 		return isSelected;
 	}
+	
 	//단건조회 - 입고수량 확인
 	public int selectAmount(int productId) {
 		int amount = 0;

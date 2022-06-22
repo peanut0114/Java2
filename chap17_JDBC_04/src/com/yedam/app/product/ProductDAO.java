@@ -11,7 +11,7 @@ public class ProductDAO extends DAO{
 	private ProductDAO() {}
 	public static ProductDAO productDAO =null;
 	public static ProductDAO getInstance() {
-		if(productDAO !=null) {
+		if(productDAO ==null) {
 			productDAO = new ProductDAO();
 		}
 		return productDAO;
@@ -30,7 +30,7 @@ public class ProductDAO extends DAO{
 			
 			int result = pstmt.executeUpdate();
 			if(result>0) {
-				System.out.println(result+"건 등록되었습니다.");
+				System.out.println("등록되었습니다.");
 			}else {
 				System.out.println("※정상적으로 등록되지 않았습니다.※");
 			}
@@ -95,7 +95,7 @@ public class ProductDAO extends DAO{
 	public void delete(int productId) {	
 		try {
 			connect();
-			String sql = "DELET FROM products WHERE product_id=" + productId;
+			String sql = "DELETE FROM products WHERE product_id=" + productId;
 			stmt = conn.createStatement();
 			int result = stmt.executeUpdate(sql);
 			if(result>0) {
@@ -119,7 +119,7 @@ public class ProductDAO extends DAO{
 						//이름은 중복이 가능 -> 한건만 조회되도록 쿼리문 주의해야함!(자바 코드가 단건조회용임)
 						//자바에서 컨트롤X 값을 들고오기만 함. 쿼리문에서 컨트롤해야함 (Developer에서 미리 돌려보자)
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, product.getProductName());
+			pstmt.setString(1, productName);
 			rs = pstmt.executeQuery();
 			
 			//값이 있을때 {}안의 내용 실행
