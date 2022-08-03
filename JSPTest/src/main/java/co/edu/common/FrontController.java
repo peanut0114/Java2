@@ -14,6 +14,8 @@ import co.edu.control.AjaxMemberIdCheck;
 import co.edu.control.BoardDetailControl;
 import co.edu.control.BoardListControl;
 import co.edu.control.BoardListPagingControl;
+import co.edu.control.CartListControl;
+import co.edu.control.CartUpdateControl;
 import co.edu.control.InsertBoardControl;
 import co.edu.control.MainController;
 import co.edu.control.MemberJoinControl;
@@ -42,6 +44,9 @@ public class FrontController extends HttpServlet {
 		mappings.put("/boardList.do", new BoardListControl()); // 게시글 목록
 		mappings.put("/boardDetail.do", new BoardDetailControl());// 게시글 상세페이지
 		mappings.put("/boardListPaging.do", new BoardListPagingControl());	//게시글목록 페이징
+		
+		mappings.put("/cartList.do", new CartListControl());
+		mappings.put("/cartUpdate.do", new CartUpdateControl());	//수량 조절시 조정된 값 db에 반영
 	}
 
 	@Override

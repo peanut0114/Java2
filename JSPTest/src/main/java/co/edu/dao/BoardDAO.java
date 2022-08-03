@@ -11,6 +11,7 @@ import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
 import co.edu.vo.BoardVO;
+import co.edu.vo.CartVO;
 import co.edu.vo.Criteria;
 
 public class BoardDAO {
@@ -209,5 +210,7 @@ public class BoardDAO {
 		}
 		return listPage;
 	}
+	
+
 
 }

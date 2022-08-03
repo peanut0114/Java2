@@ -4,6 +4,7 @@ import java.util.List;
 
 import co.edu.dao.BoardDAO;
 import co.edu.vo.BoardVO;
+import co.edu.vo.CartVO;
 import co.edu.vo.Criteria;
 
 public class BoardService {
@@ -50,4 +51,5 @@ public class BoardService {
 		return dao.getListPaging(cri);//10건씩
 	}
 	
+
 }
