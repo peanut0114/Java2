@@ -5,12 +5,12 @@ import java.util.Scanner;
 public class Main {
 
 	public static void main(String[] args) {
-
+		// 유리천재
 		Scanner scan = new Scanner(System.in);
 		int n;
 		int x;
-		int num;	//입력받은 숫자 
-		int i=1;	//반복횟수
+		int num;	//�엯�젰諛쏆� �닽�옄 
+		int i=1;	//諛섎났�슏�닔
 		
 		n = scan.nextInt();
 		x = scan.nextInt();
