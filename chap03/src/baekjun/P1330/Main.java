@@ -16,6 +16,7 @@ public class Main {
 			System.out.println("<");
 		else
 			System.out.println("==");
+		System.out.println("요요요");
 		
 	}
 
