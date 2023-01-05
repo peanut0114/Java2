@@ -21,6 +21,7 @@ public class Main {
 			}
 			i++;			
 		}while(i<=n);
+		//나도작업한다잉
 		
 	}
 
