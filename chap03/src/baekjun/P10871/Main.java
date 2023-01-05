@@ -6,6 +6,7 @@ public class Main {
 
 	public static void main(String[] args) {
 		// 유리천재
+		// 유리바부
 		Scanner scan = new Scanner(System.in);
 		int n;
 		int x;
