@@ -16,7 +16,8 @@ public class Main {
 			System.out.println("<");
 		else
 			System.out.println("==");
-		
+		//예슬이바보
+		System.out.println("babo");
 	}
 
 }
