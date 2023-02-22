@@ -103,7 +103,30 @@
 			<artifactId>hsqldb</artifactId>
 			<version>2.5.0</version>
 		</dependency>
-        
+       
+       <!--JSON-->
+		<!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.jaxrs/jackson-jaxrs-json-provider -->
+		<dependency>
+		    <groupId>com.fasterxml.jackson.jaxrs</groupId>
+		    <artifactId>jackson-jaxrs-json-provider</artifactId>
+		    <version>2.14.2</version>
+		</dependency>
+
+		
+		<!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind -->
+		<dependency>
+		    <groupId>com.fasterxml.jackson.core</groupId>
+		    <artifactId>jackson-databind</artifactId>
+		    <version>2.14.2</version>
+		</dependency>
+
+		
+        <!-- MariaDB 연동을 위해 아래 dependency 추가 -->
+		<dependency>
+			<groupId>org.mariadb.jdbc</groupId>
+		    	<artifactId>mariadb-java-client</artifactId>
+		    	<version>3.1.2</version>
+		</dependency>
        
         <dependency>
             <groupId>com.googlecode.log4jdbc</groupId>
